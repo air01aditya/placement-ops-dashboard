@@ -1,0 +1,6 @@
+excel_row,reason,Name,Email,Phone,College,Graduation Year
+9,missing or bad email,New Student 08,,9130437866,Metro Engineering College,2026
+13,bad phone,New Student 12,student12@mail.test,938597,Lakeside University,2026
+17,bad graduation year,New Student 16,student16@mail.test,9123968184,North Valley Institute,twenty26
+62,duplicate in file,New Student 03,student03@mail.test,9373878287,North Valley Institute,2026
+63,duplicate in file,New Student 21,student21@mail.test,9131182305,Lakeside University,2026
