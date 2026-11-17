@@ -51,3 +51,11 @@
     "result": "PASS  17 history has 5 rows for that entry"
   }
 ]
+
+
+
+## Race test (scripts/race_test.py)
+Two volunteers tapped Start interview in Room 1 at the same moment.
+volunteer 1 -> OK
+volunteer 2 -> BLOCKED: room 1 already has an interviewing candidate
+PASS - 1 of 2 taps succeeded
