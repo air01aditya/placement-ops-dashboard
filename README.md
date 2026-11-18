@@ -12,8 +12,12 @@ In Supabase SQL Editor, run:
 The tests should pass.
 
 ## Screens
-Streamlit screens for room volunteers, recruiters, and the coordinator.
-Put `DATABASE_URL` in a `.env` file, then run `streamlit run app/volunteer.py` (or `recruiter.py`, `coordinator.py`).
+One Streamlit app with login: `streamlit run app/main.py`
+- Volunteers see only their own room, refreshed every 5 seconds
+- Recruiters see only their own company
+- The coordinator sees all rooms and can undo a wrong tap
 
-## Tests
-Dashboard charts, then live-day hardening.
+Live read-only dashboard: https://placement-ops-aditya.streamlit.app
+
+## Future work
+Separate password per user, an admin screen to add candidates.
