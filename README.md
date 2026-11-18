@@ -1,23 +1,23 @@
-Rebuilt PostgreSQL backend for a campus-placement dashboard.
-The database prevents:
-double-booked rooms, conflicting interviews, invalid status changes, and unauthorized updates.
-Every change is audited.
+**PostgreSQL · Supabase · Streamlit · Python** — live at
+https://placement-ops-aditya.streamlit.app
 
-## Run
-In Supabase SQL Editor, run:
-1. `schema.sql`
-2. `seed.sql`
-3. `patch.sql`
-4. `tests.sql`
-The tests should pass.
+On placement day, companies interview students in different rooms...
+I worked on a Power BI and Excel version of this with a team. The files are gone, so I rebuilt it from scratch **in one day** with sample data, this time putting the rules in the database instead of trusting people to edit cells correctly.
 
-## Screens
-One Streamlit app with login: `streamlit run app/main.py`
-- Volunteers see only their own room, refreshed every 5 seconds
-- Recruiters see only their own company
-- The coordinator sees all rooms and can undo a wrong tap
+![Dashboard](docs/dashboard.png)
+![Volunteer screen](docs/volunteer.png)
 
-Live read-only dashboard: https://placement-ops-aditya.streamlit.app
+## What the database enforces
+- A room can't be booked twice for the same time
+- One interview at a time per room, and per candidate
+- Status goes in queue, interviewing, done. Only the coordinator can undo
+- Every change is logged with who made it
+- Volunteers touch only their own room, recruiters only their own company
 
-## Future work
-Separate password per user, an admin screen to add candidates.
+
+## Concurrency
+Two volunteers can tap at the same moment in the same room.
+`scripts/race_test.py` proves only one succeeds — no double-booking, even under a race.
+
+
+
